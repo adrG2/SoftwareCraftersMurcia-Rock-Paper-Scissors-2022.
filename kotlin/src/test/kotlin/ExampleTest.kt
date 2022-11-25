@@ -1,8 +1,11 @@
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-fun rockPaperScissors(s: String, s1: String): String {
-    return "Player 1";
+fun rockPaperScissors(movePlayer1: String, movePlayer2: String): String {
+    if(movePlayer1 == "rock")
+        return "Player 1";
+
+    return "Player 2";
 }
 
 class ExampleTest {
