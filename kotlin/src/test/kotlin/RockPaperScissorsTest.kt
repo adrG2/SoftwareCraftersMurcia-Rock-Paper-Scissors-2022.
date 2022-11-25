@@ -15,16 +15,16 @@ enum class Moves {
 
 fun rockPaperScissors(movePlayer1: Moves, movePlayer2: Moves): GameState {
     if(movePlayer1 == Moves.Rock)
-        return GameState.Player1;
+        return GameState.Player1
 
     if (movePlayer1 == Moves.Paper)
-        return GameState.Player1;
+        return GameState.Player1
 
 
-    return GameState.Player2;
+    return GameState.Player2
 }
 
-class ExampleTest {
+class RockPaperScissorsTest {
 
     @Test
     fun `given I have chosen rock when the opponent chooses scissors then I should win`() {
