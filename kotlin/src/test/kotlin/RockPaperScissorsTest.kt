@@ -15,10 +15,10 @@ enum class Moves {
 
 fun rockPaperScissors(movePlayer1: Moves, movePlayer2: Moves): GameState = when {
     movePlayer1 == Moves.Rock && movePlayer2 == Moves.Paper -> GameState.Player2
-    movePlayer1 == Moves.Rock -> GameState.Player1
+    movePlayer1 == Moves.Rock && movePlayer2 == Moves.Scissors-> GameState.Player1
     movePlayer1 == Moves.Paper && movePlayer2 == Moves.Rock -> GameState.Player1
     movePlayer1 == Moves.Paper && movePlayer2 == Moves.Scissors -> GameState.Player2
-    movePlayer1 == Moves.Scissors -> GameState.Player1
+    movePlayer1 == Moves.Scissors && movePlayer2 == Moves.Paper -> GameState.Player1
     else -> GameState.Player2
 }
 
