@@ -13,18 +13,11 @@ enum class Moves {
     Scissors
 }
 
-fun rockPaperScissors(movePlayer1: Moves, movePlayer2: Moves): GameState {
-    if (movePlayer1 == Moves.Rock && movePlayer2 == Moves.Paper)
-        return GameState.Player2
-
-    if(movePlayer1 == Moves.Rock)
-        return GameState.Player1
-
-    if (movePlayer1 == Moves.Paper)
-        return GameState.Player1
-
-
-    return GameState.Player2
+fun rockPaperScissors(movePlayer1: Moves, movePlayer2: Moves): GameState = when {
+    movePlayer1 == Moves.Rock && movePlayer2 == Moves.Paper -> GameState.Player2
+    movePlayer1 == Moves.Rock -> GameState.Player1
+    movePlayer1 == Moves.Paper -> GameState.Player1
+    else -> GameState.Player2
 }
 
 class RockPaperScissorsTest {
