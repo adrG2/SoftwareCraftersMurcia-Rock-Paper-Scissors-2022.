@@ -12,4 +12,9 @@ class ExampleTest {
         assertEquals("Player 1", rockPaperScissors("rock", "scissors"))
     }
 
+    @Test
+    fun `given I have chosen scissors when the opponent chooses rock then the opponent win`() {
+        assertEquals("Player 2", rockPaperScissors("scissors", "rock"))
+    }
+
 }
