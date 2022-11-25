@@ -14,6 +14,9 @@ enum class Moves {
 }
 
 fun rockPaperScissors(movePlayer1: Moves, movePlayer2: Moves): GameState {
+    if (movePlayer1 == Moves.Rock && movePlayer2 == Moves.Paper)
+        return GameState.Player2
+
     if(movePlayer1 == Moves.Rock)
         return GameState.Player1
 
@@ -39,6 +42,11 @@ class RockPaperScissorsTest {
     @Test
     fun `given I have chosen paper when the opponent chooses rock then I should win`() {
         assertEquals(GameState.Player1, rockPaperScissors(Moves.Paper, Moves.Rock))
+    }
+
+    @Test
+    fun `given I have chosen rock when the opponent chooses paper then I should win`() {
+        assertEquals(GameState.Player2, rockPaperScissors(Moves.Rock, Moves.Paper))
     }
 
 }
