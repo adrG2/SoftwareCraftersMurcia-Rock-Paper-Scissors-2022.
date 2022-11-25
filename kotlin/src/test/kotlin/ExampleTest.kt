@@ -1,24 +1,15 @@
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DynamicTest
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.TestFactory
+
+fun rockPaperSissors(s: String, s1: String): String {
+    return "Player 1";
+}
 
 class ExampleTest {
 
     @Test
-    fun change_me_first() {
-        Assertions.assertEquals("Example", "Example")
-    }
-
-    @TestFactory
-    fun dynamicTestExample() = listOf(
-        1 to 1,
-        2 to 2,
-        3 to 3
-    ).map { (input, expected) ->
-        DynamicTest.dynamicTest("given $input expected $expected") {
-            Assertions.assertEquals(expected, input)
-        }
+    fun `given I have chosen rock when the opponent chooses scissors then I should win`() {
+        assertEquals("Player 1", rockPaperSissors("rock", "sissors"))
     }
 
 }

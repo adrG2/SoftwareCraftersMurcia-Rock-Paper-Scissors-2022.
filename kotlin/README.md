@@ -114,6 +114,21 @@ public class RockPaperScissors {
 }
 ```
 
+## Valid use case testing
+
+```kotlin
+    @TestFactory
+    fun dynamicTestExample() = listOf(
+        1 to 1,
+        2 to 2,
+        3 to 3
+    ).map { (input, expected) ->
+        DynamicTest.dynamicTest("given $input expected $expected") {
+            assertEquals(expected, input)
+        }
+    }
+```
+
 # Base para hacer tests
 
 Configuración básica para empezar a hacer una kata o aprender a hacer tests en los siguientes lenguajes:
@@ -213,7 +228,7 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 
 [MockK](https://mockk.io/)
 
-## C# 
+## C#
 [xUnit](https://xunit.net/)
 [NSubstitute](https://nsubstitute.github.io/help.html)
 [FluentAssertions](https://fluentassertions.com/introduction)
