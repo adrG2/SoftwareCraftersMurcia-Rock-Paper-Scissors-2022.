@@ -5,7 +5,8 @@ import org.junit.jupiter.api.TestFactory
 
 enum class GameState {
     Player1,
-    Player2
+    Player2,
+    Draw
 }
 
 enum class Moves {
@@ -20,7 +21,8 @@ fun rockPaperScissors(movePlayer1: Moves, movePlayer2: Moves): GameState = when 
     movePlayer1 == Moves.Paper && movePlayer2 == Moves.Rock -> GameState.Player1
     movePlayer1 == Moves.Paper && movePlayer2 == Moves.Scissors -> GameState.Player2
     movePlayer1 == Moves.Scissors && movePlayer2 == Moves.Paper -> GameState.Player1
-    else -> GameState.Player2
+    movePlayer1 == Moves.Scissors && movePlayer2 == Moves.Rock -> GameState.Player2
+    else -> GameState.Draw
 }
 
 class RockPaperScissorsTest {
@@ -33,6 +35,9 @@ class RockPaperScissorsTest {
         Triple(Moves.Rock, Moves.Paper, GameState.Player2),
         Triple(Moves.Scissors, Moves.Paper, GameState.Player1),
         Triple(Moves.Paper, Moves.Scissors, GameState.Player2),
+        Triple(Moves.Rock, Moves.Rock, GameState.Draw),
+        Triple(Moves.Paper, Moves.Paper, GameState.Draw),
+        Triple(Moves.Scissors, Moves.Scissors, GameState.Draw),
     ).map { (movePlayer1, movePlayer2, expected) ->
         DynamicTest.dynamicTest("given I have chosen $movePlayer1 when the opponent chooses $movePlayer2 then $expected should win") {
             assertEquals(expected, rockPaperScissors(movePlayer1, movePlayer2))
