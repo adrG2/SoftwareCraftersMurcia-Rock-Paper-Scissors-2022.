@@ -5,14 +5,9 @@ class RockPaperScissors {
         Moves.Scissors to Moves.Rock,
     )
 
-    fun rockPaperScissors(movePlayer1: Moves, movePlayer2: Moves): GameState  {
-        if (movePlayer1 == movePlayer2) {
-            return GameState.Draw
-        }
-
-        if (gameRules[movePlayer1] == movePlayer2) {
-            return GameState.Player2
-        }
-        return GameState.Player1
+    fun rockPaperScissors(movePlayer1: Moves, movePlayer2: Moves): GameState = when {
+        movePlayer1 == movePlayer2 -> GameState.Draw
+        gameRules[movePlayer1] == movePlayer2 -> GameState.Player2
+        else -> GameState.Player1
     }
 }
